@@ -265,9 +265,9 @@ function editarConsulta(id) {
     editingConsultaId = id;
     const crearBtn = document.getElementById('crearConsultaBtn');
     const cancelBtn = document.getElementById('cancelarEdicionConsulta');
-    if (crearBtn) crearBtn.textContent = '💾 Guardar Cambios (Editar)';
+    if (crearBtn) crearBtn.textContent = ' Guardar Cambios (Editar)';
     if (cancelBtn) cancelBtn.style.display = 'inline-block';
-    document.getElementById('consultaMsg').innerHTML = `✏️ Editando consulta del ${consulta.fecha}`;
+    document.getElementById('consultaMsg').innerHTML = ` Editando consulta del ${consulta.fecha}`;
 }
 
 function cancelarEdicion() {
@@ -296,7 +296,7 @@ function guardarConsulta() {
         if (result.success) {
             cancelarEdicion();
             renderHistorial();
-            document.getElementById('consultaMsg').innerHTML = '✅ Consulta actualizada';
+            document.getElementById('consultaMsg').innerHTML = ' Consulta actualizada';
         } else {
             document.getElementById('consultaMsg').innerHTML = '❌ ' + result.msg;
         }
@@ -308,7 +308,7 @@ function guardarConsulta() {
             document.getElementById('fechaConsulta').value = '';
             document.getElementById('horaConsulta').value = '';
             renderHistorial();
-            document.getElementById('consultaMsg').innerHTML = '✅ Consulta guardada correctamente';
+            document.getElementById('consultaMsg').innerHTML = ' Consulta guardada correctamente';
         } else {
             document.getElementById('consultaMsg').innerHTML = '❌ ' + result.msg;
         }
@@ -327,19 +327,19 @@ function guardarPaciente() {
         document.getElementById('pacEdad').value = '';
         document.getElementById('pacPeso').value = '';
         document.getElementById('pacAltura').value = '';
-        document.getElementById('pacienteMsg').innerHTML = '✅ Paciente registrado, IMC calculado';
+        document.getElementById('pacienteMsg').innerHTML = ' Paciente registrado, IMC calculado';
         renderPacientesLista();
         renderSelectPacientes();
         setTimeout(() => {
             document.getElementById('pacienteMsg').innerHTML = '';
         }, 3000);
     } else {
-        document.getElementById('pacienteMsg').innerHTML = '⚠️ ' + res.msg;
+        document.getElementById('pacienteMsg').innerHTML = 'Alerta ' + res.msg;
     }
 }
 
 function clearAllData() {
-    if (confirm('⚠️ ELIMINARÁ TODOS LOS PACIENTES Y CONSULTAS de forma permanente. ¿Continuar?')) {
+    if (confirm(' ELIMINARÁ TODOS LOS PACIENTES Y CONSULTAS de forma permanente. ¿Continuar?')) {
         storage.clearAllData();
         renderPacientesLista();
         renderSelectPacientes();
