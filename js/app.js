@@ -193,7 +193,7 @@ function renderPacientesLista() {
             const id = btn.getAttribute('data-id');
             const select = document.getElementById('selectPacienteConsulta');
             if (select) select.value = id;
-            document.getElementById('consultaMsg').innerHTML = `✅ Paciente seleccionado.`;
+            document.getElementById('consultaMsg').innerHTML = ` Paciente seleccionado.`;
         });
     });
 }
@@ -222,11 +222,11 @@ function renderHistorial() {
         return `
             <div class="consulta-item" data-id="${cons.id}">
                 <div class="consulta-header">
-                    <strong>👤 ${escapeHtml(nombrePac)}</strong>
-                    <small>📅 ${cons.fecha} - ⏰ ${cons.hora}</small>
+                    <strong> ${escapeHtml(nombrePac)}</strong>
+                    <small> ${cons.fecha} - Fecha ${cons.hora}</small>
                     <div>
-                        <button class="edit-consulta" data-id="${cons.id}">✏️ Editar</button>
-                        <button class="delete-consulta" data-id="${cons.id}">🗑️ Borrar</button>
+                        <button class="edit-consulta" data-id="${cons.id}"> Editar</button>
+                        <button class="delete-consulta" data-id="${cons.id}"> Borrar</button>
                     </div>
                 </div>
                 <div><em>Evolución:</em> ${escapeHtml(cons.evolucion)}</div>
