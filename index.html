@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriMRE | Clínica de Nutrición</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- PANTALLA DE LOGIN -->
+<div id="loginView" class="login-container">
+    <div class="logo-box">
+        <div class="logo-letter">N</div>
+    </div>
+    <h1>NutriMRE</h1>
+    <div class="subtitle">CLINICA DE NUTRICIONES</div>
+    <div class="input-group">
+        <label>Nombre del nutriologo</label>
+        <input type="text" id="nutriNombre" value="Paty Chapoy" autocomplete="off">
+    </div>
+    <button id="ingresarBtn">Ingresar al sistema</button>
+    <div id="loginError" class="error-message" style="display: none;">Ingrese un nombre valido</div>
+</div>
+
+<!-- PANEL PRINCIPAL (DASHBOARD) -->
+<div id="dashboardView" class="dashboard-container" style="display: none;">
+    <div class="dash-header">
+        <div class="brand-section">
+            <span class="brand-mark">NMRE</span>
+            <span class="brand-name">NutriMRE</span>
+            <span class="brand-tag">nutricion clinica</span>
+        </div>
+        <div class="user-section">
+            <div class="user-info">
+                <span class="user-label">Nutriologo</span>
+                <strong id="displayNutri">---</strong>
+            </div>
+            <button id="clearAllDataBtn" class="btn-clear">Reiniciar sistema</button>
+            <button id="logoutBtn" class="btn-logout">Cerrar sesion</button>
+        </div>
+    </div>
+
+    <div class="main-grid">
+        <!-- COLUMNA IZQUIERDA: REGISTRO DE PACIENTES -->
+        <div class="card">
+            <div class="card-title">
+                <span class="title-icon"></span>
+                <h3>Registro antropometrico</h3>
+            </div>
+            <div class="form-row">
+                <input type="text" id="pacNombre" placeholder="Nombre completo del paciente">
+            </div>
+            <div class="form-row three-cols">
+                <input type="number" id="pacEdad" placeholder="Edad (anos)">
+                <input type="number" id="pacPeso" placeholder="Peso (kg)" step="any">
+                <input type="number" id="pacAltura" placeholder="Altura (m)" step="any">
+            </div>
+            <button id="guardarPacienteBtn" class="btn-secondary">Registrar paciente + IMC automatico</button>
+            <div id="pacienteMsg" class="feedback-msg"></div>
+
+            <div class="section-header">
+                <span>Pacientes registrados</span>
+            </div>
+            <div id="listaPacientes" class="pacientes-list"></div>
+        </div>
+
+        <!-- COLUMNA DERECHA: CONSULTAS -->
+        <div class="card">
+            <div class="card-title">
+                <span class="title-icon">🩺</span>
+                <h3>Nueva consulta</h3>
+            </div>
+            <div class="form-row">
+                <select id="selectPacienteConsulta">
+                    <option value="">-- Seleccionar paciente --</option>
+                </select>
+            </div>
+            <div class="form-row two-cols">
+                <input type="date" id="fechaConsulta">
+                <input type="time" id="horaConsulta">
+            </div>
+            <div class="form-row">
+                <textarea id="evolucion" rows="2" placeholder="Evolucion clinica del paciente"></textarea>
+            </div>
+            <div class="form-row">
+                <textarea id="planAlimentacion" rows="2" placeholder="Plan de alimentacion / recomendaciones"></textarea>
+            </div>
+            <div class="button-group">
+                <button id="crearConsultaBtn" class="btn-primary">Guardar consulta</button>
+                <button id="cancelarEdicionConsulta" class="btn-cancel" style="display: none;">Cancelar edicion</button>
+            </div>
+            <div id="consultaMsg" class="feedback-msg"></div>
+
+            <div class="section-header">
+                <span>Historial clinico (reciente primero)</span>
+            </div>
+            <div id="historialConsultas" class="consultas-list"></div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="/js/app.js"></script>
+</body>
+</html>

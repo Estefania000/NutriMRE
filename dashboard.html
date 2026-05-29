@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel NutriCheck</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div id="dashboardView" class="dashboard-container">
+        <div class="dash-header">
+            <div class="clinic-name">🥗 NutriCheck · <span id="displayNutri">---</span></div>
+            <div style="display: flex; gap: 12px;">
+                <button id="clearAllDataBtn" class="btn-danger">🗑️ Eliminar todos los datos</button>
+                <button id="logoutBtn" class="btn-logout">Cerrar sesión</button>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <div class="card">
+                <h3>📝 Nuevo paciente (registro inicial)</h3>
+                <div class="form-row">
+                    <input type="text" id="pacNombre" placeholder="Nombre completo">
+                </div>
+                <div class="form-row">
+                    <input type="number" id="pacEdad" placeholder="Edad (años)">
+                    <input type="number" id="pacPeso" placeholder="Peso (kg)" step="any">
+                    <input type="number" id="pacAltura" placeholder="Altura (m)" step="any">
+                </div>
+                <button id="guardarPacienteBtn" class="secondary">➕ Registrar paciente + IMC automático</button>
+                <div id="pacienteMsg" class="text-muted"></div>
+                
+                <h3 style="margin-top: 24px;">📋 Pacientes registrados</h3>
+                <div id="listaPacientes" class="pacientes-list"></div>
+            </div>
+
+            <div class="card">
+                <h3>🩺 Nueva consulta</h3>
+                <div class="form-row">
+                    <select id="selectPacienteConsulta">
+                        <option value="">-- Seleccionar paciente --</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <input type="date" id="fechaConsulta">
+                    <input type="time" id="horaConsulta">
+                </div>
+                <div class="form-row">
+                    <textarea id="evolucion" rows="2" placeholder="Evolución del paciente..."></textarea>
+                </div>
+                <div class="form-row">
+                    <textarea id="planAlimentacion" rows="2" placeholder="Plan de alimentación..."></textarea>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button id="crearConsultaBtn" class="secondary">📌 Guardar consulta</button>
+                    <button id="cancelarEdicionConsulta" style="background:#aaa; display: none;">Cancelar edición</button>
+                </div>
+                <div id="consultaMsg" class="text-muted"></div>
+
+                <h3 style="margin-top: 24px;">📜 Historial clínico (últimas arriba)</h3>
+                <div id="historialConsultas" class="consultas-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/js/dashboard.js"></script>
+</body>
+</html>
